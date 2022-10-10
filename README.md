@@ -8,12 +8,17 @@ First you will need a code editor like VS code to run the file.
 You can download it from here: https://code.visualstudio.com/download
 
 open the file and change the directory to src folder by inputting the following command in terminal
+
 cd src
+
 npm install node
+
 npm install express
+
 npm install hbs
 
 These commands installs all the dependancies required for the application to run in a browser
 
 you can run the application by using the following command 
+
 node app.js
