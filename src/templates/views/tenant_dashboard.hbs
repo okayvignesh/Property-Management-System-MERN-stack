@@ -1,0 +1,170 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.css" rel="stylesheet" />
+
+  <!-- MDB -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js"></script>
+  
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .navbar {
+      background-color: #6b8eab;
+    }
+
+    .card {
+      background-color: #6b8eabc0;
+      margin-left: 80px;
+      margin-top: 100px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .card-body {
+      margin-top: -10px;
+
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .bg-img {
+      height: 500px;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+
+    .btn {
+      background-color: white;
+      color: #6b8eab;
+      width: 300px;
+      height: 50px;
+      margin-right: 10px;
+      font-size: medium;
+      font-weight: bold;
+      font-family: poppins;
+      margin-bottom: 15px;
+    }
+  </style>
+  <title>Home</title>
+</head>
+
+<body class="bg-img" style="background-image: url(/image/neighbourhood.jpg);">
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <a class="navbar-brand" href="tenant_dashboard">
+        <img src="/image/abode.png" height="45" alt="" loading="lazy" />
+      </a>
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarRightAlignExample"
+        aria-controls="navbarRightAlignExample" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarRightAlignExample">
+        <!-- Left links -->
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active px-3" aria-current="page" href="tenant_dashboard">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3" aria-current="page" href="tenant_myabode">My Abode</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3" aria-current="page" href="tenant_documents">Documents</a>
+          </li>
+          <li  class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle px-4" href="#" id="navbarDropdown" role="button"
+              data-mdb-toggle="dropdown" aria-expanded="false">
+              Account
+            </a>
+            <!-- Dropdown menu -->
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item" href="#">Profile</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="forgotpassword">Change password</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <a class="dropdown-item" href="tenant_login">Logout</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <!-- Left links -->
+      </div>
+      <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <br><br>
+  <div style=" margin-left:90px">
+    <center>
+      <h1 style="font-family:Georgia, 'Times New Roman', Times, serif; color:aliceblue;">My Abode </h1>
+    </center>
+  </div>
+        {{#each data}}
+  <div class="row">
+    <div class="card" style="width: 500px;">
+      <img class="card-img-top mt-3" src="/image/apartment.jpg" alt="Card image cap">
+      <div class="card-body" style="font-family: 'Poppins', sans-serif;">
+
+        <center>
+          <h5 class="card-title" style="color: white;">{{locality}}</h5>
+          <p class="card-text" style="color: white;">Building ID: {{buildid}}</p>
+        </center>
+      </div>
+    </div>
+    <div class="card" style="width: 50rem; height: 600px;">
+      <h2 class="card-header" style="color: black;"> House Details</h2>
+      <div class="card-body">
+        <h3 style="color:aliceblue; margin-bottom:15px;">Address:   </h3>
+        <h5 class="card-title" style="color: black; margin-left:10px;">No: {{buildingno}},&ensp;{{street}}<br>{{slocality}},&ensp;{{locality}}<br>{{city}}<br>{{state}}<br></h5>
+        <p class="card-text" style="color: black; font-size:large"> 
+
+        </p>
+        <center><br><br><br><br><br><br><br>
+          <a href="tenant_payment"><button class="btn">Pay Rent</button></a>&nbsp;
+          <a href="https://paytm.com/electricity-bill-payment/karnataka/bangalore-electricity-supply-company-ltd-bescom"><button class="btn ">Pay Electricity Bill</button>&nbsp;<br /></a>
+          <a href="https://paytm.com/water-bill-payment/bangalore-water-supply-and-sewerage-board-bwssb"><button class="btn">Pay Water Bill</button>&nbsp;</a>
+          <button class="btn">Contact Owner </button>
+        </center>
+      </div>
+    </div>
+    <div class="card" style="width: 25rem; margin-left:30px; height: 600px;">
+      <h2 class="card-header"style="color: black;"> Owner Info</h2>
+      <div class="card-body">
+        <h5 class="card-title" style="color: black;"></h5>
+        <h4 class="card-title" style="color: black;"> Owner name: {{name}}<br>Owner contact: {{contact}} </h4><br>
+          <center><br>
+            <a href="tenant_services"><button class="btn mb-3">Request a service</button></a>&nbsp;
+            <a href="tenant_complaints"><button class="btn mb-3">Raise a complaint</button></a>&nbsp;
+          </center>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+
+
+
+
+</body>
+
+</html>

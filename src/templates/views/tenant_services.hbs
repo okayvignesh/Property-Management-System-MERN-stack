@@ -1,0 +1,247 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.css" rel="stylesheet" />
+
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script>
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+        })
+    </script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar {
+            background-color: #6b8eab;
+        }
+
+        .bg-img {
+            background-image: url(/image/MaintenanceTracking.jpg);
+            height: 500px;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+
+        .card {
+            background-color: rgba(49, 47, 47, 0.884);
+            color: white;
+            margin-left: 50px;
+            margin-top: 80px;
+        }
+
+        .card-body {
+            margin-top: -10px;
+
+        }
+
+        .btn {
+            background-color: #6b8eab;
+            color: white;
+            width: 200px;
+            height: 50px;
+            margin-right: 10px;
+            font-size: medium;
+            font-weight: bold;
+            font-family: poppins;
+            margin-bottom: 15px;
+        }
+    </style>
+    <title>Home</title>
+</head>
+
+
+
+<body class="bg-img">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="tenant_dashboard">
+                <img src="/image/abode.png" height="45" alt="" loading="lazy" />
+            </a>
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#navbarRightAlignExample" aria-controls="navbarRightAlignExample" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarRightAlignExample">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active px-3" aria-current="page" href="tenant_dashboard">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" aria-current="page" href="tenant_myabode">My Abode</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" aria-current="page" href="tenant_documents">Documents</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle px-4" href="#" id="navbarDropdown" role="button"
+                            data-mdb-toggle="dropdown" aria-expanded="false">
+                            Account
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item" href="#">Profile</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="forgotpassword">Change password</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="tenant_login">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <form method="post" action="/tenant_services">
+        <div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Request a Service</h5>
+                        <button type="button" class="close" data-MDB-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>{{#each data}}
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" style="margin-left: 50px;">Your Building ID</label>
+                        <center><input type="text" class="form-control" style="width: 400px;" id="buildid"
+                                name="buildid" value={{buildid}}><br>
+                    </div>
+                    </center>{{/each}}
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea3" style="margin-left: 50px;">Service description</label>
+                        <center><textarea class="form-control" id="desc" name="desc" rows="7" style="width: 400px;"
+                                autocomplete="off"></textarea>
+                    </div>
+                    </center>
+                    </center><br>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn " data-mdb-dismiss="modal">Request</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <br><br>
+    <div style="margin-left:90px">
+        <h1 style="font-family:Georgia, 'Times New Roman', Times, serif; color:black">Maintainance Requests</h1>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <a href="#" data-mdb-toggle="modal" data-mdb-target="#myModal">
+                <div class="card" style="width: 300px;">
+                    <img src="/image/plumbing.jpg" class="card-img-top" alt="" />
+                    <div class="card-body">
+                        <h5 class="card-title mb-3" id="plum">PLUMBING</h5>
+                        <p style="font-family:Arial, Helvetica, sans-serif;">Leakage, Blockage and Seepage</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-3">
+            <a href="#" data-mdb-toggle="modal" data-mdb-target="#myModal">
+                <div class="card" style="width:  300px;">
+                    <img src="/image/painting.jpg" class="card-img-top" alt="" />
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">PAINTING</h5>
+                        <p style="font-family:Arial, Helvetica, sans-serif;">Interior, Exterior and Texture</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-3">
+            <a href="#" data-mdb-toggle="modal" data-mdb-target="#myModal">
+                <div class="card" style="width:  300px;">
+                    <img src="/image/pest control.jpg" class="card-img-top" alt="" />
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">PEST CONTROL</h5>
+                        <p style="font-family:Arial, Helvetica, sans-serif;">GPC, Cockroach, bed bugs and pests</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-3">
+            <a href="#" data-mdb-toggle="modal" data-mdb-target="#myModal">
+                <div class="card" style="width:  300px;">
+                    <img src="/image/carpenting.jpg" class="card-img-top" alt="" />
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">CARPENTING</h5>
+                        <p style="font-family:Arial, Helvetica, sans-serif;">Custom Wardrobe and Modular kitchen</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-3">
+            <a href="#" data-mdb-toggle="modal" data-mdb-target="#myModal">
+                <div class="card" style="width:  300px;">
+                    <img src="/image/electrician.jpg" class="card-img-top" alt="" />
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">ELECTRICIAN</h5>
+                        <p style="font-family:Arial, Helvetica, sans-serif;">Fan repair, Lighting fitting and wiring
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-3">
+            <a href="#" data-mdb-toggle="modal" data-mdb-target="#myModal">
+                <div class="card" style="width:  300px;">
+                    <img src="/image/flooring.jpg" class="card-img-top" alt="" />
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">TILES AND FLOORING</h5>
+                        <p style="font-family:Arial, Helvetica, sans-serif;">Wooden flooring, Wall/Vitrified tiles
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-3">
+            <a href="#" data-mdb-toggle="modal" data-mdb-target="#myModal">
+                <div class="card" style="width:  300px;">
+                    <img src="/image/mason.jpg" class="card-img-top" alt="" />
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">MASON</h5>
+                        <p style="font-family:Arial, Helvetica, sans-serif;">Interior renovation and plastering</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+
+</body>
+
+</html>

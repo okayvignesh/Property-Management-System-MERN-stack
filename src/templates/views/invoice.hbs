@@ -1,0 +1,108 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css" rel="stylesheet" /><!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row d-flex align-items-baseline">
+                <div class="col-xl-9">
+                    <p style="color: #7e8d9f;font-size: 20px;">Invoice >> </p>
+                </div>{{#each data}}
+                <div class="col">
+                    <p style="color: #7e8d9f;font-size: 20px;">Building ID:{{buildingid}}</p>
+                </div>
+                {{/each}}
+
+                <hr>
+            </div>
+
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <img src="/image/abode.png" height="45" alt="" loading="lazy" />
+                    </div><br><br><br>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xl-8">
+                        <ul class="list-unstyled">{{#each data}}
+                            <li class="text-muted">To: &ensp;&nbsp;<span
+                                    style="color:#5d9fc5 ;">{{firstname}}&nbsp;{{lastname}}</span></li>
+                            <li class="text-muted"><i class="fas fa-phone"></i>&ensp;{{mobile}}</li>{{/each}}<br>
+                            {{#each data2 }}
+                            <li class="text-muted">Paid : &nbsp;<span style="color:#5d9fc5 ;">CARD</span></li>
+                            <li class="text-muted"> Card Holder Name: &ensp;{{cardholder}}</li>
+                            <li class="text-muted"> Card Number: &ensp;{{cardnumber}}</li>
+                        </ul>{{/each}}
+                    </div>
+                    <div class="col-xl-4">
+                        <p class="text-muted">Invoice</p>
+                        <ul class="list-unstyled">
+                            <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
+                                    class="fw-bold">ID:</span>#123-456</li>
+                            <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
+                                    class="fw-bold">Creation Date: </span> 26-August-2022</li>
+                        </ul>
+                    </div>
+                </div><br><br>
+
+                <div class="row my-2 mx-1 justify-content-center">
+                    <table class="table table-striped table-borderless">
+                        <thead style="background-color:#84B0CA ;" class="text-white">
+                            <tr>
+                                <th scope="col" style="font-size: 25px;">#</th>
+                                <th scope="col" style="font-size: 25px;">Description</th>
+                                <th scope="col" style="font-size: 25px;">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>{{#each data1}}
+                                <th scope="row" style="font-size: 25px;">1</th>
+                                <td style="font-size: 25px;">Rent amount</td>
+                                <td style="font-size: 25px;">₹{{Rent}}</td>
+                            </tr>{{/each}}
+                        </tbody>
+
+                    </table>
+                </div><br><br>
+                <div class="row">
+                    <div class="col">
+                        <p class="px-2">*Note: Utility bills are not included</p>
+                    </div>
+                    <div class="col">{{#each data1}}
+                        <p class="text-black float-start"><span class="text-black me-3"
+                                style="font-size: 25px;">&emsp;&nbsp; Amount Paid:&nbsp; ₹{{Rent}}</span>
+                    </div>{{/each}}
+                </div>
+                <hr><br><br>
+                <div>
+                    <a class="btn btn-light text-capitalize border-0" onclick="window.print()"
+                        data-mdb-ripple-color="dark"><i class="fas fa-print text-primary" style="font-size: 15px;"></i>
+                        Print</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+</body>
+
+</html>

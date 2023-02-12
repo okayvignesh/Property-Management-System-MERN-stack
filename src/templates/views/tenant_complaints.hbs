@@ -1,0 +1,173 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.css" rel="stylesheet" />
+
+  <!-- MDB -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .navbar {
+      background-color: #6b8eab;
+    }
+
+    .card {
+      background-color: #6b8eab6b;
+      margin-left: 400px;
+      margin-top: 80px;
+      width: 85rem;
+      height: 600px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .card-body {
+      margin-top: -10px;
+
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .bg-img {
+      height: 500px;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+
+    .btn {
+      background-color: whitesmoke;
+      color: #6b8eab;
+      width: 300px;
+      margin-top: 70px;
+      height: 60px;
+      margin-right: 10px;
+      font-size: medium;
+      font-weight: bold;
+      font-family: poppins;
+      margin-bottom: 15px;
+    }
+  </style>
+  <title>Home</title>
+</head>
+
+<body class="bg-img" style="background-image: url(/image/neighbourhood.jpg);">
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <a class="navbar-brand" href="tenant_dashboard">
+        <img src="/image/abode.png" height="45" alt="" loading="lazy" />
+      </a>
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarRightAlignExample"
+        aria-controls="navbarRightAlignExample" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarRightAlignExample">
+        <!-- Left links -->
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active px-3" aria-current="page" href="tenant_dashboard">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3" aria-current="page" href="tenant_myabode">My Abode</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3" aria-current="page" href="tenant_documents">Documents</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle px-4" href="#" id="navbarDropdown" role="button"
+              data-mdb-toggle="dropdown" aria-expanded="false">
+              Account
+            </a>
+            <!-- Dropdown menu -->
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item" href="#">Profile</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="forgotpassword">Change password</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <a class="dropdown-item" href="tenant_login">Logout</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <!-- Left links -->
+      </div>
+      <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <br><br>
+  <form method="post" action="/tenant_complaints">
+    <div style=" margin-left:90px">
+      <center>
+        <h1 style="font-family:Georgia, 'Times New Roman', Times, serif; color:aliceblue;">Raise a Complaint</h1>
+      </center>
+    </div>
+    <div class="card">
+      <div class="row">
+        <div class="col">{{#each data}}
+          <div class="form-group">
+            <h4 class="card-title " style="font-family: poppins; color: white; margin-left:110px; margin-top:50px;">
+              Building
+              ID</h4>
+            <input type="text" class="form-control" id="buildid"
+              style="width: 500px; height: 50px; font-size:25px;margin-left:100px;" autocomplete="off" name="buildid"
+              value={{buildid}}>
+          </div>{{/each}}
+        </div>
+        <div class="col">
+          <h4 class="card-title" style="font-family: poppins; color: white; margin-left:15px; margin-top:50px;">Name
+          </h4>
+          <div class="form-group">
+            <input type="text" class="form-control" id="name"
+              style="width: 500px; height: 50px; font-size:25px;margin-left:1px;" autocomplete="off" name="name">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h4 class="card-title " style="font-family: poppins; color: white; margin-left:110px; margin-top:50px;">Your
+            Complaint</h4>
+          <div class="form-group">
+            <textarea class="form-control" id="complaint" rows="5"
+              style="font-size:25px; width:1130px; margin-left:100px" autocomplete="off" name="complaint"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <center><button type="submit" class="btn mb-4 " data-mdb-toggle="modal" data-mdb-target="#myModal">Raise
+            complaint</button></center>
+      </div>
+    </div>
+  </form>
+
+
+
+
+
+
+
+</body>
+
+</html>
